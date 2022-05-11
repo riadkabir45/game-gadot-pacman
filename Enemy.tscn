@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://tilemap.png" type="Texture" id=2]
+
+[sub_resource type="QuadMesh" id=9]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 15.0333
+
+[sub_resource type="Animation" id=12]
+resource_name = "FollowDown"
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 650, 100, 50, 50 ), Rect2( 650, 150, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "FollowLeft"
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 650, 200, 50, 50 ), Rect2( 650, 250, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "FollowRight"
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 650, 50, 50, 50 ), Rect2( 650, 0, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "FollowUp"
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 650, 300, 50, 50 ), Rect2( 650, 350, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 50, 50 ) ]
+}
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 448, 464 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+scale = Vector2( 15, 15 )
+mesh = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.64, 0.64 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FollowDown = SubResource( 12 )
+anims/FollowLeft = SubResource( 13 )
+anims/FollowRight = SubResource( 10 )
+anims/FollowUp = SubResource( 14 )
+anims/RESET = SubResource( 11 )

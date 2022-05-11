@@ -1,11 +1,97 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-
-[sub_resource type="SphereMesh" id=1]
+[ext_resource path="res://tilemap.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "Munch_Down"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 900, 200, 50, 50 ), Rect2( 900, 250, 50, 50 ), Rect2( 900, 150, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Munch_Left"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 900, 350, 50, 50 ), Rect2( 900, 300, 50, 50 ), Rect2( 900, 400, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Munch_Right"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 900, 50, 50, 50 ), Rect2( 900, 100, 50, 50 ), Rect2( 900, 0, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Munch_Up"
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 900, 550, 50, 50 ), Rect2( 900, 500, 50, 50 ), Rect2( 900, 450, 50, 50 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 900, 0, 50, 50 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -13,9 +99,18 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2( 15, 15 )
-mesh = SubResource( 1 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.64, 0.64 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 900, 0, 50, 50 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Munch_Down = SubResource( 7 )
+anims/Munch_Left = SubResource( 5 )
+anims/Munch_Right = SubResource( 3 )
+anims/Munch_Up = SubResource( 6 )
+anims/RESET = SubResource( 4 )
