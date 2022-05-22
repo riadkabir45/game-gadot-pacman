@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 850, 200, 50, 50 ), Rect2( 850, 250, 50, 50 ), Rect2( 850, 150, 50, 50 ) ]
+"values": [ Rect2( 900, 200, 50, 50 ), Rect2( 900, 250, 50, 50 ), Rect2( 900, 150, 50, 50 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 850, 350, 50, 50 ), Rect2( 850, 300, 50, 50 ), Rect2( 850, 400, 50, 50 ) ]
+"values": [ Rect2( 900, 350, 50, 50 ), Rect2( 900, 300, 50, 50 ), Rect2( 900, 400, 50, 50 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 850, 50, 50, 50 ), Rect2( 850, 100, 50, 50 ), Rect2( 850, 0, 50, 50 ) ]
+"values": [ Rect2( 900, 50, 50, 50 ), Rect2( 900, 100, 50, 50 ), Rect2( 900, 0, 50, 50 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Rect2( 850, 550, 50, 50 ), Rect2( 850, 500, 50, 50 ), Rect2( 850, 450, 50, 50 ) ]
+"values": [ Rect2( 900, 550, 50, 50 ), Rect2( 900, 500, 50, 50 ), Rect2( 900, 450, 50, 50 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Rect2( 850, 0, 50, 50 ) ]
+"values": [ Rect2( 900, 0, 50, 50 ) ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -106,7 +106,7 @@ shape = SubResource( 2 )
 scale = Vector2( 0.64, 0.64 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 850, 0, 50, 50 )
+region_rect = Rect2( 900, 0, 50, 50 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Munch_Down = SubResource( 7 )
